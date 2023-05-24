@@ -16,11 +16,12 @@ namespace HotelManger.DAL.Entities
         public decimal Price { get; set; }
         public decimal DiscountPrice { get; set;}
 
-        public string Facilities { get; set; }      
-
+        public string Facilities { get; set; }
+        public bool Available { get; set; } = true;
         public string FirstImage { get; set; }
         public string SecondImage { get; set; }
         public string? ThirdImage { get; set; }
+
 
         [ForeignKey("Hotel")]
         public Guid HotelID { get; set; }

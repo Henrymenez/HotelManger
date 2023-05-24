@@ -14,6 +14,9 @@ namespace HotelManger.DAL.Entities
         public string PhoneNumber { get; set; }
         public string Address { get; set; }
         public string Password { get; set; }
+        [ForeignKey("AppUser")]
+        public string UserId { get; set; }
+        public virtual AppUser User { get; set; }
 
         [ForeignKey("Hotel")]
         public Guid HotelID { get; set; }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Globalization;
 using System.Linq;
 using System.Text;
@@ -9,11 +10,11 @@ namespace HotelManger.DAL.Entities
 {
     public class Customer : BaseEntity
     {
-        public string CustomerID { get; set; }
+        [ForeignKey("AppUser")]
+        public string UserId { get; set; }
         public virtual AppUser User { get; set; }
         public string Fullname { get; set; }
         public string PhoneNumber  { get; set; }
-
         public string Address { get; set; }
         public string Email { get; set; }
     }

@@ -1,4 +1,5 @@
-﻿using HotelManger.DAL.Enums;
+﻿using HotelManager.DAL.Entities;
+using HotelManger.DAL.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,8 +29,9 @@ namespace HotelManger.DAL.Entities
         public string FirstImage { get; set; }
         public string SecondImage { get; set; }
         public string? ThirdImage { get; set; }
-        public virtual ICollection<Employee> employees { get; set; } = new List<Employee>();
-        public virtual ICollection<Customer> customers { get; set; } = new List<Customer>();
-        public virtual ICollection<Room> rooms { get; set; } = new List<Room>();
+        public virtual ICollection<Employee> Employees { get; set; } = new List<Employee>();
+        public virtual ICollection<Customer> Customers { get; set; } = new List<Customer>();
+        public virtual ICollection<Room> Rooms { get; set; } = new List<Room>();
+        public virtual ICollection<HotelBalance> HotelBalances { get; set; } = new List<HotelBalance>();
     }
 }

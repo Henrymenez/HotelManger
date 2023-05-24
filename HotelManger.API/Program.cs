@@ -1,4 +1,5 @@
-
+using HotelManager.BLL.Extensions;
+using HotelManager.DAL.Configurations;
 using HotelManager.DAL.Entities;
 using HotelManger.DAL.Entities;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -6,6 +7,7 @@ using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using System.Reflection;
 using System.Text;
 
 namespace HotelManger.API
@@ -79,6 +81,11 @@ namespace HotelManger.API
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+            builder.Services.AddAutoMapper(Assembly.Load("HotelManager.BLL"));
+            builder.Services.RegisterServices();
+            builder.Services.AddHttpContextAccessor();
+
+          
 
             var app = builder.Build();
 
@@ -95,6 +102,7 @@ namespace HotelManger.API
 
 
             app.MapControllers();
+            app.AddGlobalErrorHandler();
 
             app.Run();
         }

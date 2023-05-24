@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using HotelManager.DAL.Entities;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -22,6 +23,10 @@ namespace HotelManger.DAL.Entities
         public DbSet<Hotel> Hotels { get; set; }
 
         public DbSet<Room> Rooms { get; set; }
+
+        public DbSet<BookRoom> BookedRooms { get; set; }
+
+        public DbSet<Payment> Payments { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
